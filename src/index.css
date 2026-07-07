@@ -20,6 +20,14 @@ body,
 #root {
   height: 100%;
 }
+/* Mobile browsers: track the real visible viewport (URL bar collapse). */
+@supports (height: 100dvh) {
+  html,
+  body,
+  #root {
+    height: 100dvh;
+  }
+}
 body {
   margin: 0;
   overflow: hidden;
@@ -468,6 +476,26 @@ a.contact-row:hover {
 }
 .pet-bubble:hover {
   background: linear-gradient(180deg, #ffffff, #ffe9c4);
+}
+
+/* ── mobile sizing ─────────────────────────────────────── */
+@media (max-width: 640px) {
+  .pet-bubble {
+    white-space: normal;
+    max-width: 56vw;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.25;
+  }
+  .hex-emblem {
+    width: 38px;
+    height: 38px;
+    font-size: 13px;
+  }
+  .btn-primary {
+    padding: 0.55rem 1.1rem;
+    font-size: 13px;
+  }
 }
 
 .chat-bot {

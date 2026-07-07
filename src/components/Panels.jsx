@@ -99,7 +99,7 @@ function Profile() {
           </div>
         </div>
         <p className="mt-4 text-sm leading-relaxed text-slate-300">{player.summary}</p>
-        <div className="mt-4 grid grid-cols-4 gap-2">
+        <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
           {stats.map((s) => (
             <div key={s.label} className="game-panel p-2 text-center">
               <div className="glow-text font-display text-lg font-black">{s.value}</div>
@@ -282,7 +282,7 @@ export default function Panels({ panel, onClose }) {
             transition={{ duration: 0.28, ease: 'easeOut' }}
             onClick={(e) => e.stopPropagation()}
           >
-            <header className="flex items-center justify-between border-b border-[color:var(--line)] px-5 py-3">
+            <header className="flex items-center justify-between border-b border-[color:var(--line)] px-4 py-3 sm:px-5">
               <h2 className="glow-text font-display text-sm font-bold tracking-[0.3em] sm:text-base">
                 {TITLES[panel]}
               </h2>
@@ -295,7 +295,7 @@ export default function Panels({ panel, onClose }) {
                 </button>
               </div>
             </header>
-            <div className="game-scroll overflow-y-auto p-5">
+            <div className="game-scroll overflow-y-auto p-4 sm:p-5">
               <PanelBody panel={panel} />
             </div>
           </motion.div>

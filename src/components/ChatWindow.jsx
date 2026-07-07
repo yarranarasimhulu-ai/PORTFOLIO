@@ -107,13 +107,13 @@ export default function ChatWindow({ onClose }) {
       dragMomentum={false}
       dragElastic={0.08}
       dragConstraints={bounds}
-      className="fixed bottom-4 right-4 z-50 w-[360px] max-w-[calc(100vw-2rem)]"
+      className="fixed inset-x-3 bottom-3 z-50 sm:inset-x-auto sm:bottom-4 sm:right-4 sm:w-[360px]"
       initial={{ y: 40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: 30, opacity: 0 }}
       transition={{ duration: 0.25, ease: 'easeOut' }}
     >
-      <div className="game-panel accent-edge flex h-[480px] max-h-[calc(100vh-6rem)] flex-col">
+      <div className="game-panel accent-edge flex h-[480px] max-h-[calc(100dvh-6rem)] flex-col">
         {/* header — drag handle */}
         <header
           onPointerDown={(e) => dragControls.start(e)}

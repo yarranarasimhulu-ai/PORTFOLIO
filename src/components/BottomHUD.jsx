@@ -20,7 +20,7 @@ export default function BottomHUD({ onOpen }) {
       <button
         type="button"
         onClick={() => onOpen('projects')}
-        className="btn-primary ml-auto font-display"
+        className="btn-primary ml-auto w-full font-display sm:w-auto"
       >
         ▶ VIEW PROJECTS
         <span className="block text-[9px] font-semibold tracking-[0.25em] opacity-80">

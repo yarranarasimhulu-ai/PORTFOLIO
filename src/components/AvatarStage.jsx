@@ -1,5 +1,5 @@
 import { Suspense, useEffect, useMemo, useRef } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import {
   ContactShadows,
   Environment,
@@ -11,6 +11,27 @@ import {
   useGLTF,
 } from '@react-three/drei'
 import * as THREE from 'three'
+
+/* The default camera is tuned for landscape. On portrait screens the same
+   lens crops the scene badly, so widen the fov and step back with the aspect. */
+function ResponsiveCamera() {
+  const { camera, size } = useThree()
+  useEffect(() => {
+    const aspect = size.width / size.height
+    if (aspect < 0.75) {
+      camera.fov = 48
+      camera.position.set(0, 1.45, 5.7)
+    } else if (aspect < 1.1) {
+      camera.fov = 42
+      camera.position.set(0, 1.4, 5.1)
+    } else {
+      camera.fov = 36
+      camera.position.set(0, 1.35, 4.6)
+    }
+    camera.updateProjectionMatrix()
+  }, [camera, size])
+  return null
+}
 
 /** The real "me" — Avaturn avatar from public/avatar.glb, playing its bundled gesture animation. */
 function Avatar() {
@@ -304,6 +325,7 @@ export default function AvatarStage({ accentHex, bubble, onPetClick }) {
         camera={{ position: [0, 1.35, 4.6], fov: 36 }}
         gl={{ antialias: true, alpha: true }}
       >
+        <ResponsiveCamera />
         {/* Studio-style environment map built from light panels — gives PBR
             reflections and soft skin shading without fetching an HDR file. */}
         <Environment resolution={256}>
