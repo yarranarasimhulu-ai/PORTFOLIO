@@ -479,6 +479,12 @@ a.contact-row:hover {
 }
 
 /* ── mobile sizing ─────────────────────────────────────── */
+/* Phones held sideways: the viewport is too short for the ticker row. */
+@media (max-height: 500px) {
+  .hud-ticker {
+    display: none;
+  }
+}
 @media (max-width: 640px) {
   .pet-bubble {
     white-space: normal;
