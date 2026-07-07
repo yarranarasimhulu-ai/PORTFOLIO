@@ -479,10 +479,27 @@ a.contact-row:hover {
 }
 
 /* ── mobile sizing ─────────────────────────────────────── */
-/* Phones held sideways: the viewport is too short for the ticker row. */
+/* Phones held sideways: the viewport is too short for the ticker row,
+   so drop it and compact the rest of the HUD. */
 @media (max-height: 500px) {
   .hud-ticker {
     display: none;
+  }
+  .hex-emblem {
+    width: 36px;
+    height: 36px;
+    font-size: 12px;
+  }
+  .btn-primary {
+    padding: 0.45rem 1rem;
+    font-size: 12px;
+  }
+  .hud-chips {
+    bottom: 4.1rem;
+  }
+  .hud-bottom {
+    padding-top: 0.4rem;
+    padding-bottom: 0.5rem;
   }
 }
 @media (max-width: 640px) {

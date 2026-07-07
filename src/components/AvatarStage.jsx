@@ -18,7 +18,12 @@ function ResponsiveCamera() {
   const { camera, size } = useThree()
   useEffect(() => {
     const aspect = size.width / size.height
-    if (aspect < 0.75) {
+    if (size.height < 520 && aspect >= 1.1) {
+      // landscape phone: very short viewport — pull back so the avatar sits
+      // clear of the HUD rows stacked at the bottom
+      camera.fov = 38
+      camera.position.set(0, 1.45, 6.1)
+    } else if (aspect < 0.75) {
       camera.fov = 48
       camera.position.set(0, 1.45, 5.7)
     } else if (aspect < 1.1) {

@@ -24,7 +24,7 @@ export default function MenuList({ active, onOpen }) {
       </nav>
 
       {/* mobile: horizontal chips above the bottom bar */}
-      <nav className="absolute inset-x-0 bottom-20 z-20 flex gap-2 overflow-x-auto px-3 pb-1 lg:hidden">
+      <nav className="hud-chips absolute inset-x-0 bottom-20 z-20 flex gap-2 overflow-x-auto px-3 pb-1 lg:hidden">
         {[...menu, { id: 'skills', label: 'SKILLS' }].map((m) => (
           <button
             key={m.id}
